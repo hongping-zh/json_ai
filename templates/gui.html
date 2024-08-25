@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON Parser - GUI</title>
+</head>
+<body>
+<h1>JSON 解析器 (GUI)</h1>
+<form action="/gui" method="post" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <br>
+    <textarea name="schema" placeholder="输入自定义 Schema (可选)" rows="10" cols="50">{}</textarea>
+    <br>
+    <input type="submit" value="上传并解析">
+</form>
+{% if result %}
+<h2>解析结果:</h2>
+<pre>{{ result }}</pre>
+{% elif error %}
+<h2 style="color: red;">错误: {{ error }}</h2>
+{% endif %}
+</body>
+</html>
